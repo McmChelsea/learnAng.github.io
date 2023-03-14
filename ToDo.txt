@@ -1,0 +1,20 @@
+Routing 
+Services
+Rxjs
+Directives
+Pipes
+Lazy Loading --- done
+CanActivate
+CanDeactv
+Both Forms
+------------------
+Testing
+Prodctn
+Git commands
+FireBase
+
+alwin
+------
+Auth - login
+Lang localization
+app_initializer
