@@ -1,4 +1,5 @@
-Routing 
+Routing -- done
+child routing -- done
 Services
 Rxjs
 Directives
@@ -6,7 +7,17 @@ Pipes
 Lazy Loading --- done
 CanActivate
 CanDeactv
-Both Forms
+Both Forms - done
+cookies, localStorage, SessionStorage
+OAuth
+Auth guards
+multiple router outlet
+pagination
+ViewChild
+1000 of ngFor
+Resolver routing
+Pre lazy loading
+Angular version update
 ------------------
 Testing
 Prodctn

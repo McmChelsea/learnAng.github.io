@@ -1,0 +1,30 @@
+
+<form [formGroup]="registerForm">
+    <div class="register-form">
+        <h2>Register</h2>
+        <div class="login-form-elements">
+            <div class="form-group">
+                <label for="username">Username</label><br>
+                <input matInput type="text" id="username" formControlName="username" class="form-control" [ngClass]="{ 'is-invalid': submitted && registerForm.get('username')?.errors }"><br>
+                <!-- <span *ngIf="loginForm.get('username')?.invalid && (loginForm.get('username')?.dirty || loginForm.get('username')?.touched)">Please provide a username</span> -->
+            </div>
+            <div class="form-group">
+                <label for="password">Password</label><br>
+                <input type="password" id="password" formControlName="password" class="form-control" [ngClass]="{ 'is-invalid': submitted && registerForm.get('password')?.errors }">
+                <div *ngIf="submitted  && controls?.['password']?.errors" class="invalid-feedback">
+                    <span *ngIf="controls?.['password']?.errors?.['required']"> Please enter password</span>
+                </div>
+            </div>
+            <div class="form-group">
+                <label for="confirm-password">Confirm Password</label><br>
+                <input type="password" id="confirm-password" formControlName="confirmPassword" class="form-control" [ngClass]="{ 'is-invalid': submitted && registerForm.get('confirmPassword')?.errors }">
+            </div>
+            <span *ngIf="registerForm.errors?.['noMatch']"> Passwords dont match</span>
+        </div>
+        <div class="btn-group">
+            <button class="btn btn-primary" [routerLink]="['child']"  (click)="submitForm(registerForm)">Register</button>
+            <a routerLink="/login" class="btn btn-link">Login Instead</a>
+        </div>
+    </div>
+</form>
+<router-outlet></router-outlet>

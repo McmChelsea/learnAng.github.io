@@ -10,12 +10,13 @@
             </div>
             <div class="form-group">
                 <label for="password">Password</label><br>
-                <input type="text" id="password" formControlName="password" class="form-control" [ngClass]="{ 'is-invalid': submitted && loginForm.get('password')?.errors }">
+                <input type="password" id="password" formControlName="password" class="form-control" [ngClass]="{ 'is-invalid': submitted && loginForm.get('password')?.errors }">
             </div>
+
         </div>
         <div class="btn-group">
             <button class="btn btn-primary" (click)="submitForm(loginForm)">Login</button>
-            <a class="btn btn-link">Register</a>
+            <a routerLink="/register" class="btn btn-link">Register</a>
         </div>
     </div>
 </form>
