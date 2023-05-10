@@ -22,7 +22,7 @@
             <span *ngIf="registerForm.errors?.['noMatch']"> Passwords dont match</span>
         </div>
         <div class="btn-group">
-            <button class="btn btn-primary" [routerLink]="['child']"  (click)="submitForm(registerForm)">Register</button>
+            <button class="btn btn-primary"  (click)="submitForm(registerForm)">Register</button>
             <a routerLink="/login" class="btn btn-link">Login Instead</a>
         </div>
     </div>

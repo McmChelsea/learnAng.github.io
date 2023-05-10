@@ -1,6 +1,9 @@
 import { Component, OnInit } from '@angular/core';
 import { AbstractControl, FormBuilder, FormGroup, ValidationErrors, ValidatorFn, Validators } from '@angular/forms';
-import {ErrorServiceService} from '../../error/error/error-service.service'
+import {alertServiceService} from '../../error/alert/alert.service'
+import { UserService } from '../../../services/user.service'
+import { first } from 'rxjs/operators';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-register-component',
@@ -13,8 +16,9 @@ export class RegisterComponentComponent implements OnInit {
 
   constructor(
     private fb: FormBuilder,
-    private errorService: ErrorServiceService
-
+    private alertService: alertServiceService,
+    private userService: UserService,
+    private router: Router
   ) { }
 
   ngOnInit(): void {
@@ -39,10 +43,10 @@ export class RegisterComponentComponent implements OnInit {
       const confirm = control.get(secondControl)?.value;
 
       if (password != confirm) { 
-        this.errorService.errors('Passwords are not matching');
+        this.alertService.errors('Passwords are not matching');
         return { 'noMatch': true } 
       }
-      this.errorService.errors('');
+      this.alertService.errors('');
       return null
  
     }
@@ -57,7 +61,16 @@ export class RegisterComponentComponent implements OnInit {
       return;
     }
 
-    console.log(form);
+    this.userService.register1(this.registerForm.value)
+    .pipe(first())
+    .subscribe(res => {
+      this.alertService.success('Registration Successfull!');
+      this.router.navigate(['/login']);
+    },
+    error => {
+      console.log(error)
+      this.alertService.errors(error.message);
+    })
   }
 
 }

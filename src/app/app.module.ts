@@ -4,7 +4,9 @@ import { BrowserModule } from '@angular/platform-browser';
 import {AppRoutingModule} from './app-routing.module';
 import {AppComponent} from './app.component';
 import {HttpClientModule} from '@angular/common/http';
-import {ErrorModule} from '../app/modules/error/error.module'
+import {AlertModule} from './modules/error/alert.module'
+
+import { FakeBackendInterceptor } from '../app/shared/_helpers/fake-backend';
 
 @NgModule({
   declarations: [
@@ -14,9 +16,9 @@ import {ErrorModule} from '../app/modules/error/error.module'
     BrowserModule,
     AppRoutingModule,
     HttpClientModule,
-    ErrorModule
+    AlertModule
   ],
-  providers: [],
+  providers: [FakeBackendInterceptor],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

@@ -1,18 +1,18 @@
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
-import { ErrorComponent } from './error/error.component';
+import { AlertComponent } from './alert/alert.component';
 
 
 
 @NgModule({
   declarations: [
-    ErrorComponent
+    AlertComponent
   ],
   imports: [
     CommonModule
   ],
   exports: [
-    ErrorComponent
+    AlertComponent
   ]
 })
-export class ErrorModule { }
+export class AlertModule { }
